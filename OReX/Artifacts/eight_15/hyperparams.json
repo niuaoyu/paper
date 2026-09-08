@@ -1,0 +1,49 @@
+{
+    "out_dir": "./Artifacts",
+    "input": "./Data/csl_with_ref/eight_15.csl",
+    "cuda_device": 0,
+    "seed": 11,
+    "centralize_csl": false,
+    "bounding_margin": 0.05,
+    "n_white_noise": 2048,
+    "n_samples": [
+        2,
+        2,
+        3,
+        3,
+        4,
+        5
+    ],
+    "sampling_radius_exp": [
+        4,
+        5,
+        5,
+        6,
+        6,
+        7
+    ],
+    "n_samples_boundary": 16384,
+    "meshing_resolution": 300,
+    "embedding_freqs": 5,
+    "hidden_state_size": 32,
+    "hidden_layers_width": 7,
+    "hidden_layers_height": 64,
+    "n_iterations": 10,
+    "eikonal_lambda": 0,
+    "eikonal_hinge_lambda": 0.0001,
+    "hinge_alpha": 100,
+    "lr": 0.01,
+    "scheduler_gamma": 0.9,
+    "weight_decay": 0.001,
+    "batch_size_exp": 14,
+    "scheduler_step": 10,
+    "epochs_batches": [
+        50,
+        50,
+        100,
+        100,
+        150,
+        200
+    ],
+    "n_used_datasets": 3
+}
