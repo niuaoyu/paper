@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# macOS
+.DS_Store
+
+# Datasets / checkpoints (see data/README.md).
+# Real datasets are NOT committed. Tracked exceptions: the shared atlas meshes and
+# the small bundled toy sample under data/sample/ (a few real cases for a quick smoke test).
+/data/**
+!/data/README.md
+!/data/atlas.vtp
+!/data/atlas_3lab.vtp
+!/data/sample/
+!/data/sample/**
+/checkpoints/
+/outputs/
+*.pt
+
+# Environments
+.venv/
+env/

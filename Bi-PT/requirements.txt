@@ -1,0 +1,22 @@
+# ============================================================================
+# Bi-PT runtime dependencies
+# ----------------------------------------------------------------------------
+# NOTE on install order (important):
+#   1. Install PyTorch first, matched to your CUDA version:
+#        https://pytorch.org/get-started/locally/
+#   2. Install PyTorch3D matched to your torch/CUDA build (it is NOT a plain
+#        `pip install`): https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md
+#   3. Then install the remaining packages below.
+#
+# The version pins below are conservative lower bounds known to work with the
+# code; adjust to your CUDA toolkit. See environment.yml for a conda recipe.
+# ============================================================================
+
+torch>=2.0
+numpy>=1.23
+vtk>=9.2
+torchdiffeq>=0.2.3
+
+# PyTorch3D — install per the official instructions above; listed here for
+# completeness. Uncomment only if you have a compatible wheel/source build.
+# pytorch3d>=0.7.4

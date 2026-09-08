@@ -1,0 +1,15 @@
+# ============================================================================
+# Extra dependencies for the data-preprocessing scripts (scripts/preprocess/).
+# Not needed for training/inference. Install with:
+#     pip install -r requirements-preprocess.txt
+# ============================================================================
+
+SimpleITK>=2.2
+scipy>=1.9
+numpy>=1.23
+vtk>=9.3          # generate_gt_mesh.py needs vtkSurfaceNets3D (VTK >= 9.3)
+
+# generate_gt_mesh.py reuses a few helpers by Fanwei Kong, all vendored under
+# scripts/preprocess/thirdparty/ (pre_process.py + utils.py, Apache-2.0;
+# vtk_utils/vtk_utils.py, MIT). No extra download needed. TensorFlow is NOT
+# required (utils.py's TF import is guarded). See scripts/preprocess/README.md.

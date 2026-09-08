@@ -1,0 +1,33 @@
+# ============================================================================
+# Conda environment for Bi-PT
+#
+# Usage:
+#   conda env create -f environment.yml
+#   conda activate bipt
+#
+# PyTorch / PyTorch3D versions must match your CUDA toolkit. The versions here
+# are a reference; edit `pytorch-cuda` and the torch/pytorch3d builds to match
+# your GPU driver. See https://github.com/facebookresearch/pytorch3d for the
+# supported torch/CUDA combinations.
+# ============================================================================
+name: bipt
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - fvcore
+  - iopath
+  - pytorch3d
+dependencies:
+  - python=3.10
+  - pip
+  - pytorch>=2.0
+  - torchvision
+  - pytorch-cuda=12.1        # <-- change to match your CUDA toolkit
+  - numpy>=1.23
+  - vtk>=9.2
+  - fvcore
+  - iopath
+  - pytorch3d
+  - pip:
+      - torchdiffeq>=0.2.3

@@ -1,0 +1,17 @@
+# ============================================================================
+# Bi-PT evaluation dependencies (scripts/infer.py + scripts/evaluate.py)
+# ----------------------------------------------------------------------------
+# Install these in addition to requirements.txt. Inference (scripts/infer.py)
+# needs only the base runtime deps; the extra packages below are for the metric
+# suite in scripts/evaluate.py.
+# ============================================================================
+
+scipy>=1.10          # EMD (Hungarian assignment), KD-trees for CD/NC
+trimesh>=3.20        # mesh handling, face adjacency / normals
+open3d>=0.17         # non-manifold vertex/edge detection
+
+# Self-intersection ratio (SI) uses torch-mesh-isect, a CUDA extension that is
+# NOT on PyPI — build it from source against your torch/CUDA:
+#   https://github.com/vchoutas/torch-mesh-isect
+# It is imported lazily inside evaluate.py; without it (or without CUDA), SI is
+# reported as NaN and every other metric still runs. Enable with `--compute-si`.

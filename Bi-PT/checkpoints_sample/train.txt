@@ -1,0 +1,17 @@
+DEVICE=cuda
+AMP=True (runtime=True) | ODE_FORCE_FP32=True
+Model: ca_type=double time=0.2 num_hidden=512 latent_len=32
+tol=1e-05 tanh_dynamics=True ca_nblocks=4 ca_nneighbor=16
+affine_dynamics=True cond_mode=concat cond_norm=none label_dim=2
+SPC: dir=data/sample/spc_ds pcs_key=pcs pairs_key=pairs feat_dim=8 d_points_spc=5
+GT:  dir=data/sample/gt_ds_5632_vtp pair_array=VertexBoundaryLabels label3_array=VertexLabels3
+ATLAS: path=data/atlas.vtp pair_array=VertexBoundaryLabels label3_array=VertexLabels3 feat_dim=8 d_points_atlas=5
+LOSS: cd_mode(label_dim=2)=both, w1=0.3, w2=0.7, lap=1.0 | cd3_weights(label_dim=3) plain=1.0 pair2=1.0 label3=1.0
+label_wx=1.0 label_wy=1.2 label_scale=10.0
+EXTRA: use_chamber_cd=False chamber_cd_w=1.0 use_chamber_lap=False chamber_lap_w=1.0 label_ids=[2, 3, 4, 5, 6]
+OPT: AdamW lr=0.001 wd=0.0001 grad_clip=0.1
+TRAIN: epochs=3 bs=2 workers=1 seed=42
+LOG:  ./checkpoints_sample/train.txt
+
+Epoch 001: avg_loss=0.026211 avg_cd1=0.012186 avg_cd2=0.022654 avg_lap=0.006697 lr=7.50e-04 amp=True label_dim=2 bs=2 grad_clip=0.100000 | chcd(avg)=0.000000 chlap(avg)=0.000000 use_chcd=0 use_chlap=0
+Epoch 002: avg_loss=0.020279 avg_cd1=0.010874 avg_cd2=0.014856 avg_lap=0.006618 lr=2.50e-04 amp=True label_dim=2 bs=2 grad_clip=0.100000 | chcd(avg)=0.000000 chlap(avg)=0.000000 use_chcd=0 use_chlap=0

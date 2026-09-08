@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bipt"
+version = "0.1.0"
+description = "Bi-PT: Bidirectional Cross-Attention Point Transformers for Four-Chamber Heart Reconstruction from Sparse Cardiac MRI Data"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Chenchuhui Hu" },
+  { name = "Shaoming Pan" },
+  { name = "Leon Axel" },
+  { name = "Meng Ye" },
+]
+keywords = ["neural-deformation", "3d-reconstruction", "cardiac-mri", "point-transformer"]
+dependencies = [
+  "torch>=2.0",
+  "numpy>=1.23",
+  "vtk>=9.2",
+  "torchdiffeq>=0.2.3",
+  # pytorch3d must be installed separately, matched to your torch/CUDA build.
+]
+
+[tool.setuptools.packages.find]
+include = ["bipt*"]
